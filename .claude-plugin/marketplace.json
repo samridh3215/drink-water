@@ -1,0 +1,13 @@
+{
+  "name": "drink-water",
+  "owner": {
+    "name": "Samridh Anand"
+  },
+  "plugins": [
+    {
+      "name": "drink-water",
+      "source": "./drink-water",
+      "description": "Periodically reminds you to drink water while you work with Claude Code."
+    }
+  ]
+}
