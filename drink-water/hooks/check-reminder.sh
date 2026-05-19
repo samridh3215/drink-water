@@ -36,16 +36,10 @@ else
 fi
 
 # JSON output is read by Claude Code:
-#   - systemMessage  -> shown to the user in the UI
-#   - additionalContext -> injected into Claude's context so it can nudge too
-# We avoid a hard dependency on jq by hand-building the JSON (the strings are
-# fixed, so escaping is not a concern).
+#   - systemMessage -> shown to the user in the UI
+# Stop hooks don't accept hookSpecificOutput, so we keep this minimal.
 cat <<JSON
 {
-  "systemMessage": "💧 Hydration check — drink some water (last reminder: ${HUMAN_ELAPSED} ago).",
-  "hookSpecificOutput": {
-    "hookEventName": "Stop",
-    "additionalContext": "Hydration reminder fired. If it feels natural, briefly remind the user to drink water before continuing."
-  }
+  "systemMessage": "💧 Hydration check — drink some water (last reminder: ${HUMAN_ELAPSED} ago)."
 }
 JSON
